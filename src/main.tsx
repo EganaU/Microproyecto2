@@ -5,7 +5,14 @@ import App from './App.tsx'
 import Home from './Home';
 import Login from './Login';
 import Register from './Register'; 
-import './index.css'
+import './index.css';
+import 'Firebaseconfig.js';
+// import { collection, getDocs } from 'firebase/firestore';
+
+// const querySnapshot = await getDocs(collection(getFirestore(app),'videojuegos'));
+// querySnapshot.forEach((doc) => {
+//   console.log((doc.id) + '=>' + (doc.data()));
+// })
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
