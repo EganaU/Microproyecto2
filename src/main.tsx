@@ -6,10 +6,10 @@ import Home from './Home';
 import Login from './Login';
 import Register from './Register'; 
 import './index.css';
-import 'Firebaseconfig.js';
+// import './Firebaseconfig';
 // import { collection, getDocs } from 'firebase/firestore';
 
-// const querySnapshot = await getDocs(collection(getFirestore(app),'videojuegos'));
+// const querySnapshot = await getDocs(collection(db,'videojuegos'));
 // querySnapshot.forEach((doc) => {
 //   console.log((doc.id) + '=>' + (doc.data()));
 // })
