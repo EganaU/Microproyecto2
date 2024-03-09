@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
+import { Link } from "react-router-dom";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
+    <>
     <div>
       <h1>Iniciar Sesión</h1>
       <form onSubmit={handleSubmit}>
@@ -34,9 +36,10 @@ const LoginPage: React.FC = () => {
             required
           />
         </div>
-        <button type="submit">Iniciar Sesión</button>
+        <button type="submit"><Link to="/Home">Iniciar Sesion</Link></button>
       </form>
     </div>
+      </>
   );
 };
 

@@ -12,7 +12,6 @@ const RegisterPage: React.FC = () => {
     console.log('Contraseña:', password);
     console.log('Nombre:', name);
     console.log('Apellido: ',lastname)
-
   };
 
   return (
