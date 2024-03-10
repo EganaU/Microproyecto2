@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import './index.css';
 import { registerWithEmailAndPassword, signInWithGoogle } from "./Firebase/auth-service";
+import { useNavigate } from 'react-router-dom';
+
+
 
 const RegisterPage: React.FC = () => {
 
+  const navigate = useNavigate();
+
   const handleSignInWithGoogle = async () => {
     await signInWithGoogle();
+    navigate('/Home');
 }
 
   const [name, setName] = useState('');  
@@ -22,11 +28,9 @@ const RegisterPage: React.FC = () => {
     registerWithEmailAndPassword(email,password);
   };
 //, extraData
-  return (
+  
+return (
     <div>
-        <button type="submit" onClick={handleSignInWithGoogle}> 
-          Registro con Google
-        </button>  
       <h1>Registrar Usuario</h1>
       <form onSubmit={handleSubmit}>
       <div>
@@ -70,6 +74,7 @@ const RegisterPage: React.FC = () => {
           />
         </div>
         <button type="submit">Registrar</button>
+        <button type="submit" onClick={handleSignInWithGoogle}>Registrar con Google<img src="googleicon.webp" width="20" height="20"></img></button>  
       </form>
     </div>
   );
