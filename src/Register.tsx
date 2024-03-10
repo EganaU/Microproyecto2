@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import './index.css';
+import { registerWithEmailAndPassword, signInWithGoogle } from "./Firebase/auth-service";
 
 const RegisterPage: React.FC = () => {
+
+  const handleSignInWithGoogle = async () => {
+    await signInWithGoogle();
+}
+
   const [name, setName] = useState('');  
   const [lastname,setLastname] = useState('');
   const [email, setEmail] = useState('');
@@ -11,11 +17,16 @@ const RegisterPage: React.FC = () => {
     console.log('Correo electrónico:', email);
     console.log('Contraseña:', password);
     console.log('Nombre:', name);
-    console.log('Apellido: ',lastname)
+    console.log('Apellido: ',lastname);
+    // const extraData = {'Nombre': name, 'apellido': lastname};
+    registerWithEmailAndPassword(email,password);
   };
-
+//, extraData
   return (
     <div>
+        <button type="submit" onClick={handleSignInWithGoogle}> 
+          Registro con Google
+        </button>  
       <h1>Registrar Usuario</h1>
       <form onSubmit={handleSubmit}>
       <div>
