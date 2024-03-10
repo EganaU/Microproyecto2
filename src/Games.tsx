@@ -1,6 +1,6 @@
 import './index.css';
 import { Link } from "react-router-dom";
- import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth } from "firebase/auth";
 import { collection, getFirestore, getDocs } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
@@ -71,6 +71,7 @@ import React, { useEffect, useState } from 'react';
       <div id="contenedor">
         <button><Link to="/Games">Buscar Juegos</Link></button>
         <button><Link to="/Clubs">Ver Clubes</Link></button>
+        <button><Link to="/Perfil">Ver Perfil</Link></button>
       </div>
         <div className="container">
         <h1>Buscar Juegos</h1>

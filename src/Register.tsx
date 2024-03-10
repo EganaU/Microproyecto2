@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './index.css';
 import { registerWithEmailAndPassword, signInWithGoogle } from "./Firebase/auth-service";
 import { useNavigate } from 'react-router-dom';
+import { createUserProfile } from './Firebase/users-service';
 
 
 
@@ -26,6 +27,7 @@ const RegisterPage: React.FC = () => {
     console.log('Apellido: ',lastname);
     // const extraData = {'Nombre': name, 'apellido': lastname};
     registerWithEmailAndPassword(email,password);
+    createUserProfile(email,{'nombre': name, 'apellido': lastname, 'correo': email, 'clubes unidos': {}});
   };
 //, extraData
   

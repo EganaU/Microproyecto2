@@ -6,6 +6,7 @@ import Games from "./Games";
 import { Link } from "react-router-dom";
 import {Routes, Route } from "react-router-dom";
 import './index.css'
+import Perfil from './perfil';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Home" element={<Home/>} />
         <Route path="/Clubs" element={<Clubs/>} />
         <Route path="/Games" element={<Games/>} />
+        <Route path="/Perfil" element={<Perfil/>} />
       </Routes>
 
     </>

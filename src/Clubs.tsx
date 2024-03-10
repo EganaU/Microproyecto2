@@ -42,6 +42,9 @@ import React, { useEffect, useState } from 'react';
     return clubInfo;
   }
   
+
+  export const clubNames: { clubName: string }[] = [];
+
   const ClubesComponent: React.FC = () => {
     const [clubInfo, setClubInfo] = useState<{ nombre: string, descripcion: string }[]>([]);
   
@@ -63,6 +66,7 @@ import React, { useEffect, useState } from 'react';
       <div id="contenedor">
         <button><Link to="/Games">Buscar Juegos</Link></button>
         <button><Link to="/Clubs">Ver Clubes</Link></button>
+        <button><Link to="/Perfil">Ver Perfil</Link></button>
       </div>
       <h1>Lista de Clubes</h1>
       <div className="club-box">
@@ -83,4 +87,8 @@ export default ClubesComponent;
 const handleJoinClub = (clubName: string) => {
     // Lógica para unirse al club específico
     console.log(`Unirse al club: ${clubName}`);
-  };
+    // const clubNames: { clubName: string }[] = [];
+    const data = clubName;
+    clubNames.push({ clubName: data });
+    console.log('unidos: ', clubNames)
+}

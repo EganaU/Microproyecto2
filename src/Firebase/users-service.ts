@@ -1,8 +1,8 @@
 import { doc, setDoc } from 'firebase/firestore'
 import { db} from './config'
 
-export async function createUserProfile(userID: string, data: object) {
-    return setDoc(doc(db, "users", userID), data);
+export async function createUserProfile(email: string, data: object) {
+    return setDoc(doc(db, "users", email), data);
 }
 
 
