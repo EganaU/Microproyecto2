@@ -6,9 +6,13 @@ function App() {
     <>
       <div>
       </div>
+      <div id="contenedor">
+        <button><Link to="/Games">Buscar Juegos</Link></button>
+        <button><Link to="/Clubs">Ver Clubes</Link></button>
+      </div>
       <h1>Bienvenido al Club</h1>
       <div id= "contenedor">
-      <button><Link to="/Games">Ver Juegos</Link> </button> <button> <Link to="/Clubs">Ver Clubes</Link> </button>
+      <button><Link to="/Games">Buscar Juegos</Link> </button> <button> <Link to="/Clubs">Ver Clubes</Link> </button>
       </div>
 
 

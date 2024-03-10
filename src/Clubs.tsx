@@ -59,20 +59,28 @@ import React, { useEffect, useState } from 'react';
     }, []);
   
     return (  
-      <div>
-      <div id= "contenedor">
-      <button><Link to="/Games">Ver Juegos</Link> </button> <button> <Link to="/Clubs">Ver Clubes</Link> </button>
+<div>
+      <div id="contenedor">
+        <button><Link to="/Games">Buscar Juegos</Link></button>
+        <button><Link to="/Clubs">Ver Clubes</Link></button>
       </div>
-        <h1>Lista de Clubes</h1>
-        <ul>
-          {clubInfo.map((club, index) => (
-            <li key={index}>
-              <strong>Nombre:</strong> {club.nombre} - <strong>Descripción:</strong> {club.descripcion}
-            </li>
-          ))}
-        </ul>
+      <h1>Lista de Clubes</h1>
+      <div className="club-box">
+        {clubInfo.map((club, index) => (
+          <div key={index} className="club-info">
+            <h3>{club.nombre}</h3>
+            <p>{club.descripcion}</p>
+            <button className="join-button" onClick={() => handleJoinClub(club.nombre)}>Unirme</button>
+          </div>
+        ))}
       </div>
-    );
+    </div>
+  );
+};
+
+export default ClubesComponent;
+
+const handleJoinClub = (clubName: string) => {
+    // Lógica para unirse al club específico
+    console.log(`Unirse al club: ${clubName}`);
   };
-  
-  export default ClubesComponent;
