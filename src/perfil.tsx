@@ -3,13 +3,17 @@ import { db } from './Firebase/config'
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { clubNames } from "./Clubs";
+import email from './Login';
 
 export async function getUserInfo(): Promise<{ nombre: string, apellido: string, correo: string, clubes_unidos: object }[]> {
     const userInfo: { nombre: string, apellido: string, correo: string, clubes_unidos: object }[] = [];
     const querySnapshot = await getDocs(collection(db,"users"));
+    console.log('email: ', email)
     querySnapshot.forEach((doc) => {
       const data = doc.data();
-      if (data && typeof data.titulo === 'string' && typeof data.descripcion === 'string') {
+      console.log('data.correo: ', data.correo)
+      if (data.correo === email && typeof data.correo === 'string') {
+        console.log('Comparando: ', data.correo)
         userInfo.push({ nombre: data.nombre, apellido: data.apellido, correo: data.correo, clubes_unidos: clubNames });
       }
     });
@@ -37,7 +41,7 @@ export async function getUserInfo(): Promise<{ nombre: string, apellido: string,
       <div id="contenedor">
         <button><Link to="/Games">Buscar Juegos</Link></button>
         <button><Link to="/Clubs">Ver Clubes</Link></button>
-        <button><Link to="/Perfil">Ver Perfil</Link></button>
+        <button><Link to="/Perfil" onClick={getUserInfo}>Ver Perfil</Link></button>
       </div>
       <h1>Datos de perfil</h1>
       <div className="club-box">
