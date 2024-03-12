@@ -38,6 +38,13 @@ const LoginPage: React.FC = () => {
 
   const navigate = useNavigate();
 
+  // const getActiveMail = async () => {
+  //   const gmail = email;
+  //   return gmail
+  // }
+
+  // getActiveMail
+
   const comprobarEmail = async () => {
     console.log('correo: ', email)
     console.log("Correos registrados: ", userEmail)
