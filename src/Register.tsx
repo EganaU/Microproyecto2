@@ -25,11 +25,10 @@ const RegisterPage: React.FC = () => {
     console.log('Contraseña:', password);
     console.log('Nombre:', name);
     console.log('Apellido: ',lastname);
-    // const extraData = {'Nombre': name, 'apellido': lastname};
     registerWithEmailAndPassword(email,password);
     createUserProfile(email,{'nombre': name, 'apellido': lastname, 'correo': email, 'clubes unidos': {}});
   };
-//, extraData
+
   
 return (
     <div>
@@ -67,6 +66,16 @@ return (
         </div>
         <div>
           <label htmlFor="password">Contraseña: </label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Videojuego favorito: </label>
           <input
             type="password"
             id="password"

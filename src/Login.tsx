@@ -5,7 +5,7 @@ import { collection, getFirestore, getDocs } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-// import { Link } from "react-router-dom";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDWvUjB-HJEu5LyAA3NZZHKGOPd7Fw-xDY",
@@ -42,7 +42,6 @@ const LoginPage: React.FC = () => {
     console.log('correo: ', email)
     console.log("Correos registrados: ", userEmail)
     const correos = userEmail
-    // console.log('CORREO:', correos.correo)
     console.log('tamano: ',userEmail.length)
     if (email == correos[0].correo){
       console.log('correo: ', email)
@@ -99,7 +98,6 @@ const LoginPage: React.FC = () => {
           />
         </div>
         <button type="submit" onClick={comprobarEmail}>Iniciar Sesion</button>
-        {/* <button type="submit"><Link to="/Home">Iniciar Sesion</Link></button> */}
       </form>
     </div>
       </>

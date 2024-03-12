@@ -26,20 +26,20 @@ import React, { useEffect, useState } from 'react';
   googleProvider.setCustomParameters({ prompt: 'select_account' });
   
 
-  export async function getGameInfo(): Promise<{ titulo: string, descripcion: string }[]> {
-    const gameInfo: { titulo: string, descripcion: string }[] = [];
+  export async function getGameInfo(): Promise<{ID: string, titulo: string, descripcion: string, genero: string }[]> {
+    const gameInfo: {ID: string,titulo: string, descripcion: string, genero: string}[] = [];
     const querySnapshot = await getDocs(collection(db,"Videojuegos"));
     querySnapshot.forEach((doc) => {
       const data = doc.data();
-      if (data && typeof data.titulo === 'string' && typeof data.descripcion === 'string') {
-        gameInfo.push({ titulo: data.titulo, descripcion: data.descripcion });
+      if (data && typeof data.titulo === 'string'&& typeof data.ID === 'string' && typeof data.descripcion === 'string' && typeof data.genero ==='string') {
+        gameInfo.push({ID: data.ID, titulo: data.titulo, descripcion: data.descripcion, genero: data.genero });
       }
     });
     return gameInfo;
   }
   
-  const ClubesComponent: React.FC = () => {
-    const [gameInfo, setGameInfo] = useState<{ titulo: string, descripcion: string }[]>([]);
+  const GamesComponent: React.FC = () => {
+    const [gameInfo, setGameInfo] = useState<{ID: string, titulo: string, descripcion: string, genero: string }[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>('');
   
     useEffect(() => {
@@ -68,10 +68,12 @@ import React, { useEffect, useState } from 'react';
         <>
         <div>
       </div>
+      <div className="transparent-button">
+        <button><Link to="/Profile">Ver Perfil<img src = "perfil.png" width = "40" height = "40"></img></Link></button>
+      </div>
       <div id="contenedor">
         <button><Link to="/Games">Buscar Juegos</Link></button>
         <button><Link to="/Clubs">Ver Clubes</Link></button>
-        <button><Link to="/Perfil">Ver Perfil</Link></button>
       </div>
         <div className="container">
         <h1>Buscar Juegos</h1>
@@ -86,6 +88,7 @@ import React, { useEffect, useState } from 'react';
             {filteredGames.map((game, index) => (
         <div key={index} className="game-info">
         <h3>{game.titulo}</h3>
+        <h2>{game.genero}</h2>
         <p>{game.descripcion}</p>
         </div>
     ))}
@@ -95,4 +98,4 @@ import React, { useEffect, useState } from 'react';
       )
   };
   
-  export default ClubesComponent;
+  export default GamesComponent;
